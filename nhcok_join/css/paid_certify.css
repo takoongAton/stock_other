@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* input type number 초기화(화살표 제거) */
+input[type="number"]{-moz-appearance:textfield;}
+input[type="number"]::-webkit-inner-spin-button {cursor:pointer;}
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none; -moz-appearance:none; appearance:none; margin:0;}
+
+html, body, .paid_certify_wrap {height:100%;}
+.paid_certify_wrap {display:flex; flex-direction:column; width:100%; max-width:720px; height:100%; margin:0 auto;}
+
+.paid_certify_wrap .header_wrap div {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:48px; text-align:center;}
+.paid_certify_wrap .header_wrap div h1 {font-size:16px; line-height:1; font-weight:bold;}
+.paid_certify_wrap .header_wrap div button {position:absolute; top:0; width:auto; padding:12px 0;}
+.paid_certify_wrap .header_wrap div button.btn_back {left:18px;}
+.paid_certify_wrap .header_wrap div button span {display:block; width:28px; height:28px;}
+
+.paid_certify_wrap .section {display:flex; flex-direction:column; justify-content:space-between; width:100%; height:100%; padding:20px 16px;}
+.paid_certify_wrap .section .page_top div.txt_wrap {padding-bottom:36px;}
+.paid_certify_wrap .section .page_top div.txt_wrap p {font-size:16px; line-height:21px; font-weight:bold; word-break:keep-all;}
+.paid_certify_wrap .section .page_top div.txt_wrap p.em {color:#ff0000;}
+.paid_certify_wrap .section .page_top div.txt_wrap p + p.em {padding-top:1em;}
+
+.paid_certify_wrap .signUp_form ul.radio {display:flex; width:100%; gap:8px;}
+.paid_certify_wrap .signUp_form ul.radio li {position:relative; width:100%;}
+.paid_certify_wrap .signUp_form ul.radio li input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.paid_certify_wrap .signUp_form ul.radio li input + label {display:flex; justify-content:center; align-items:center; width:100%; height:48px; border:1px solid #E3E3E3; transition:border 0.2s ease;}
+.paid_certify_wrap .signUp_form ul.radio li input:checked + label {border-width:1.5px; border-color:#20BC7D;}
+.paid_certify_wrap .signUp_form ul.radio li input:checked + label span {color:#20BC7D; font-weight:bold;}
+
+.paid_certify_wrap .signUp_form .phoneNum {position:relative; height:42px; margin-top:22px; padding:6px 100px 6px 0; padding-right:100px; border-bottom:1px solid #666;}
+.paid_certify_wrap .signUp_form .phoneNum input {width:100%; height:28px; padding:0 4px; border:0 none; color:#000; font-size:16px; line-height:28px; font-weight:500;}
+.paid_certify_wrap .signUp_form .phoneNum input:disabled {background-color:#fff; color:#e3e3e3}
+.paid_certify_wrap .signUp_form .phoneNum input::placeholder {color:#e3e3e3; font-size:inherit; line-height:inherit; font-weight:400;}
+.paid_certify_wrap .signUp_form .phoneNum button {position:absolute; top:6px; right:0; width:auto; height:28px; padding:0 12px; background-color:#333; border-radius:8px; color:#fff; line-height:1em; overflow:hidden;}
+.paid_certify_wrap .signUp_form .phoneNum button span {font-size:12px;}
+
+.paid_certify_wrap .signUp_form .certify_wrap {position:relative; height:42px; margin-top:28px; padding:6px 50px 6px 0; padding-right:100px; border-bottom:1px solid #666;}
+.paid_certify_wrap .signUp_form .certify_wrap input {width:100%; height:28px; padding:0 4px; border:0 none; color:#000; font-size:16px; line-height:28px; font-weight:500;}
+.paid_certify_wrap .signUp_form .certify_wrap input:disabled {background-color:#fff; color:#e3e3e3}
+.paid_certify_wrap .signUp_form .certify_wrap input::placeholder {color:#e3e3e3; font-size:inherit; line-height:inherit; font-weight:400;}
+.paid_certify_wrap .signUp_form .certify_wrap span.time {position:absolute; top:50%; right:12px; height:18px; color:#20BC7D; font-size:12px; line-height:18px; transform:translateY(-50%);}
+
+.paid_certify_wrap .page_footer .btn_group {}
+.paid_certify_wrap .page_footer .btn_group button {width:100%; height:50px; border-radius:8px; overflow:hidden;}
+.paid_certify_wrap .page_footer .btn_group button span {font-size:14px;}
+.paid_certify_wrap .page_footer .btn_group button + button {margin-top:10px;}
+.paid_certify_wrap .page_footer .btn_group button.btn_next {border-color:transparent; background-color:#20BC7D;}
+.paid_certify_wrap .page_footer .btn_group button.btn_next:disabled {background-color:#999;}
+.paid_certify_wrap .page_footer .btn_group button.btn_next span {color:#fff;}
+.paid_certify_wrap .page_footer .btn_group button.btn_cancel {background-color:#fff; border:1px solid #999;}
+.paid_certify_wrap .page_footer .btn_group button.btn_cancel span {color:#999;}

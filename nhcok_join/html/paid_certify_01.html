@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-capable" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/paid_certify.css">
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block">
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../js/basic.js"></script> -->
+</head>
+<body>
+
+<div class="paid_certify_wrap">
+
+	<div class="header_wrap">
+		<div>
+			<button type="button" class="btn_back"><span><img src="../images/icon_back_top.png" alt="뒤로가기"></span></button>
+			<h1>증권 추천</h1>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="page_top">
+			<div class="txt_wrap">
+				<p>유료회원 확인을 위해 유료서비스에 가입하신 휴대폰번호로 인증해주세요.</p>
+			</div>
+
+			<div class="signUp_form">
+				<ul class="radio">
+					<li>
+						<input type="radio" id="divide01" name="telCdRadio" value="SKT" class="telCdRadioSkt" checked />
+						<label for="divide01"><span>SKT</span></label>
+					</li>
+					<li>
+						<input type="radio" id="divide02" name="telCdRadio" value="KT" class="telCdRadioKt" />
+						<label for="divide02"><span>KT</span></label>
+					</li>
+					<li>
+						<input type="radio" id="divide03" name="telCdRadio" value="LGT" class="telCdRadioLgt" />
+						<label for="divide03"><span>LG U+</span></label>
+					</li>
+				</ul>
+
+				<div class="phoneNum">
+					<input type="tel" maxlength="11" pattern="\d*" id="usermdn" min="0" max="11" placeholder="휴대폰 번호를 입력하세요." value="01022223333">
+					<button type="button" class="btn_certify" id="authBtn" disabled="disabled"><span>인증번호 재요청</span></button>
+				</div>
+				
+				<div class="certify_wrap">
+					<div class="certify">
+						<input id="authNo" maxlength="6" pattern="\d*" type="number" min="0" max="6" title="인증번호 입력" placeholder="인증번호를 입력하세요."  value="234564">
+						<span class="time" id="timer">2:43</span>
+					</div>
+				</div>
+
+			</div><!-- // signUp_form -->
+		</div>
+		<!-- // page_top -->
+
+		<div class="page_footer">
+			<div class="btn_group">
+				<button type="button" class="btn_next"><span>유료회원인증</span></button>
+				<!-- <button type="button" class="btn_cancel" ><span>다음에</span></button> -->
+			</div>
+		</div>
+		<!-- // page_footer -->
+	</div>
+	<!-- // section -->
+
+	
+</div>
+
+
+</body>
+</html>
