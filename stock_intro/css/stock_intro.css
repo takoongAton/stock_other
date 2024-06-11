@@ -1,0 +1,51 @@
+* {margin:0; padding:0; list-style:none; box-sizing:border-box; font-family:'Noto Sans KR';}
+button {background-color:none; cursor:pointer; border:none; background:none; -webkit-appearance:none;}
+img {width:100%; max-width:100%;}
+
+.header_wrap {position:-webkit-sticky; position:sticky; top:0; left:0; width:100%; max-width:720px; margin:0 auto; background-color:#fff; z-index:1;}
+
+/* 공통 임시 */
+.header_wrap div.temp {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:50px; text-align:center;}
+.header_wrap div.temp button {position:absolute; top:0; left:16px; width:auto; padding:12px 0;}
+.header_wrap div.temp button span {display:block; width:26px; height:26px;}
+.header_wrap div.temp h1 {color:#222; font-size:18px; line-height:26px; font-weight:400;}
+/* 공통 임시 */
+
+
+/* 공모주 정보 인트로 */
+.stock_intro_wrap {max-width:720px; margin:0 auto; color:#222;}
+.stock_intro_wrap p {margin-top:12px; color:#7A7A7A; font-size:12px; line-height:18px; letter-spacing:-0.03em;}
+.stock_intro_wrap .intro_content {padding:16px 20px 48px;}
+.stock_intro_wrap .intro_content .intro_top .intro_tit {color:#222; font-size:22px; line-height:32px; font-weight:700;}
+.stock_intro_wrap .intro_content .intro_top div.img {margin-top:12px; border-radius:15px; overflow:hidden;}
+
+.stock_intro_wrap .intro_content .intro_sub_content {margin-top:40px;}
+.stock_intro_wrap .intro_content .intro_sub_content + .intro_sub_content {margin-top:48px;}
+.stock_intro_wrap .intro_content .intro_sub_content div.tit {letter-spacing:-0.03em;}
+.stock_intro_wrap .intro_content .intro_sub_content div.tit strong {display:inline-block; font-size:22px; line-height:32px; font-weight:bold;}
+.stock_intro_wrap .intro_content .intro_sub_content div.tit strong span {color:#2677FF;}
+.stock_intro_wrap .intro_content .intro_sub_content div.tit > span {display:inline-block; font-size:12px; line-height:18px;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group {position:relative; margin-top:16px;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group + .intro_sub_group {margin-top:40px;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit {color:#222; font-size:18px; line-height:26px; font-weight:500;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit em {position:relative; font-style:normal;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit em::before {content:""; display:block; position:absolute; bottom:2px; left:0; width:100%; height:50%; background-color:#CAE6FF; z-index:0;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit em span {position:relative;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group div.img {position:absolute; top:0; right:0; width:72px; height:72px; z-index:-1;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group:nth-child(odd) div.sub_tit em::before {background-color:#FFEBEC;}
+.stock_intro_wrap .intro_content .intro_sub_content .intro_sub_group:nth-child(even) div.sub_tit em::before {background-color:#FFF2D6;}
+
+.stock_intro_wrap .intro_guide {padding:32px 20px 48px; background-color:#F0F2F4;}
+.stock_intro_wrap .intro_guide .intro_guide_tit {color:#7A7A7A; font-size:12px; line-height:18px; font-weight:bold;}
+.stock_intro_wrap .intro_guide ul {margin-top:18px;}
+.stock_intro_wrap .intro_guide ul li p {position:relative; margin-top:0; padding-left:17px; color:#7A7A7A; font-size:12px; line-height:18px;}
+.stock_intro_wrap .intro_guide ul li p::before {content:"·"; display:block; position:absolute; top:0; left:8px; color:inherit; font-size:13px; line-height:inherit; font-weight:bold;}
+
+.stock_intro_wrap .intro_footer {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:10; padding:20px; background-color:#fff;}
+.stock_intro_wrap .intro_footer button {width:100%; height:50px; border-radius:12px; background-color:#222;}
+.stock_intro_wrap .intro_footer button strong {display:inline-block; color:#fff; font-size:16px; line-height:26px; font-weight:bold;}
+/* 공모주 정보 인트로 */
+
+@media only screen and (max-width:359px) {
+    .stock_intro_wrap p br {display:none;}
+}
