@@ -42,7 +42,7 @@ img {width:100%; max-width:100%;}
 .stock_intro_wrap .intro_guide ul li p::before {content:"·"; display:block; position:absolute; top:0; left:8px; color:inherit; font-size:13px; line-height:inherit; font-weight:bold;}
 .stock_intro_wrap .intro_guide ul li p a {color:inherit; text-decoration:none;}
 
-.stock_intro_wrap .intro_footer {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:10; padding:20px; background-color:#fff;}
+.stock_intro_wrap .intro_footer {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:10; padding:20px 20px 80px 20px; background-color:#fff;}
 .stock_intro_wrap .intro_footer button {width:100%; height:50px; border-radius:12px; background-color:#222;}
 .stock_intro_wrap .intro_footer button strong {display:inline-block; color:#fff; font-size:16px; line-height:26px; font-weight:bold;}
 /* 공모주 정보 인트로 */
