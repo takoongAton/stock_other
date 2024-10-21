@@ -1,0 +1,13 @@
+@charset "utf-8";
+* {margin:0; padding:0; border:0 none; list-style:none;}
+.kt_pass_bnr_item {position:relative;}
+.kt_pass_bnr_item::after {content:""; display:block; position:absolute; top:50%; right:6.7vw; width:1.9vw; height:3.3vw; background:url('../images/icon_arr_g.png') no-repeat left top / contain; transform:translateY(-50%);}
+.kt_pass_bnr_item * {margin:0; padding:0; list-style:none; border:0 none;}
+.kt_pass_bnr_item {display:flex; justify-content:space-between; align-items:center; gap:3.5vw;}
+.kt_pass_bnr_item div.icon {width:13vw;}
+.kt_pass_bnr_item div.icon img {display:block; max-width:100%; height:auto;}
+.kt_pass_bnr_item .txt_wrap {flex:1;}
+.kt_pass_bnr_item .txt_wrap span,
+.kt_pass_bnr_item .txt_wrap strong {display:block;}
+.kt_pass_bnr_item .txt_wrap span {color:#787878; font-size:3vw; line-height:1.5em;}
+.kt_pass_bnr_item .txt_wrap strong {margin-top:-0.5vw; color:#333333; font-size:4.5vw; line-height:1.46666em;}
