@@ -1,6 +1,6 @@
 @charset "utf-8";
 * {margin:0; padding:0; border:0 none; list-style:none;}
-.kt_pass_bnr_item {position:relative;}
+.kt_pass_bnr_item {position:relative; height:21vw; padding-left:4.7vw;}
 .kt_pass_bnr_item::after {content:""; display:block; position:absolute; top:50%; right:6.7vw; width:1.9vw; height:3.3vw; background:url('../images/icon_arr_g.png') no-repeat left top / contain; transform:translateY(-50%);}
 .kt_pass_bnr_item * {margin:0; padding:0; list-style:none; border:0 none;}
 .kt_pass_bnr_item {display:flex; justify-content:space-between; align-items:center; gap:3.5vw;}
