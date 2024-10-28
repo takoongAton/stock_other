@@ -96,6 +96,6 @@ input, select, button {border:0 none; background-color:transparent;}
 .layer .btn_group div button {height:3.75em; line-height:1em;}
 .layer .btn_group div button span {display:block; font-size:1.125em;}
 .layer .btn_group div button.btn_next span {color:#fff}
-.layer .btn_group div button.btn_cancel span {color:#000;}
+.layer .btn_group div button.btn_close span {color:#000;}
 /* // 레이어팝업 */
 /* // 부가서비스 해지 전용 페이지 */
