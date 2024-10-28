@@ -1,0 +1,101 @@
+/* 부가서비스 해지 전용 페이지 */
+* {box-sizing:border-box; font-family:'Noto Sans KR'; margin:0; padding:0; list-style:none; outline:0;}
+input, select, button {border:0 none; background-color:transparent;}
+
+.close_account_wrap div.header {display:flex; justify-content:center; align-items:center; position:-webkit-sticky; position:sticky; top:0; left:0; height:56px; background-color:#fff; z-index:1;}
+.close_account_wrap div.header h2 {font-size:16px; line-height:24px;}
+
+/* 안내 텍스트 */
+.guide_txt {display:flex; flex-direction:column; gap:10px 0; width:100%; padding:18px; background-color:#F8F8F8;}
+.guide_txt div.tit {}
+.guide_txt div.tit strong {display:block; color:#000; font-size:14px; line-height:21px; font-weight:700;}
+.guide_txt div.txt_wrap p {position:relative; padding-left:9px; color:#000; font-size:12px; line-height:22px; font-weight:400; word-break:keep-all;}
+.guide_txt div.txt_wrap p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
+/* // 안내 텍스트 */
+
+/* 약관 동의 */
+.chk_wrap {padding:12px 18px 20px;}
+.chk_wrap div {display:flex; align-items:center; gap:0 10px;}
+.chk_wrap label {display:inline-block; justify-content:center; align-items:center; position:relative; width:24px; height:24px;}
+.chk_wrap label input {position:absolute; top:0; left:0; widtH:0; height:0; opacity:0;}
+.chk_wrap label span.checkmark {position:absolute; top:50%; left:50%; width:20px; height:20px; transform:translate(-10px, -10px); border:1px solid #ddd; border-radius:100%;}
+.chk_wrap label span.checkmark::before {content:""; display:block; position:absolute; left:50%; top:50%; width:60%; height:30%; border-width:0 0 2px 2px; border-style:solid; border-color:#ddd; transform:translate(-50%,-75%) rotate(-45deg);}
+.chk_wrap label input:checked + span.checkmark,
+.chk_wrap label input:checked + span.checkmark::before {border-color:#009DDF}
+.chk_wrap button {height:20px; line-height:1em;}
+.chk_wrap button span {font-size:14px; line-height:16px;}
+/* // 약관 동의 */
+
+/* 페이지 입력폼 */
+.input_form {padding-bottom:20px;}
+.input_form .form_tit {padding:10px 18px; background-color:#F8F8F8;}
+.input_form .form_tit strong {display:block; font-size:14px; line-height:20px; font-weight:700;}
+.input_form div.list {padding:0 18px;}
+.input_form div.list .item {display:flex; justify-content:flex-start; width:100%; padding:20px 0 21px; border-bottom:1px solid #ddd;}
+.input_form div.list .item div.tit {width:70px;}
+.input_form div.list .item div.tit strong,
+.input_form div.list .item div.tit span {display:inline-block; font-size:14px; line-height:20px; font-weight:500;}
+.input_form div.list .item div.tit strong {color:#000;}
+.input_form div.list .item div.tit span {color:#FF0000;}
+.input_form div.list .item div.set_ipt {flex:1;}
+.input_form div.list .item div.set_ipt input {width:100%; height:20px; border:0 none; background-color:#fff; outline:0;}
+.input_form .txt_wrap {padding:12px 18px 0;}
+.input_form .txt_wrap p {font-size:12px; line-height:15px;}
+.input_form .txt_wrap p.em {color:#ff0000;}
+.btn_group {display:flex; position:-webkit-sticky; position:sticky; bottom:0; left:0; background-color:#fff; z-index:1;}
+.btn_group button {width:100%; height:48px; line-height:1em;}
+.btn_group button.btn_next {background-color:#333333;}
+.btn_group button.btn_next span {color:#fff;}
+.btn_group button.btn_cancel {background-color:#EFF0F2;}
+.btn_group button.btn_cancel span {color:#333333;}
+.btn_group button span {display:block; font-size:16px; line-height:24px;}
+/* // 페이지 입력폼 */
+
+
+/* 약관 보기 팝업 */
+.layer.full {position:fixed; top:0; right:0; bottom:0; left:0; background-color:#fff;}
+.layer.full div.inner {display:flex; flex-direction:column; width:100%; height:100%;}
+.layer.full div.layer_header {display:flex; justify-content:center; align-items:center; position:relative; height:56px; padding:0 42px; background-color:#fff; text-align:center;}
+.layer.full div.layer_header h2 {font-size:16px; line-height:24px;}
+.layer.full div.layer_header button.btn_close {position:absolute; top:50%; right:18px; width:24px; height:24px; transform:translateY(-50%); overflow:hidden;}
+.layer.full div.layer_header button.btn_close::before,
+.layer.full div.layer_header button.btn_close::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:1.5px; border-radius:1.5px; background-color:#000; }
+.layer.full div.layer_header button.btn_close::before {transform:translate(-50%,-50%) rotate(-45deg);}
+.layer.full div.layer_header button.btn_close::after {transform:translate(-50%,-50%) rotate(45deg);}
+.layer.full div.layer_header button.btn_close span {position:relative; z-index:-1; color:transparent;}
+.layer.full div.layer_body {flex:1; padding:20px 18px; background-color:#F8F8F8; font-size:12px; line-height:22px; overflow-y:auto;}
+/* // 약관 보기 팝업 */
+
+
+/* 얼랏형 팝업 */
+.layer {position:relative; z-index:2;;}
+.layer div.dim {position:fixed; top:0; right:0; bottom:0; left:0; height:100vh; background-color:rgba(0,0,0,0.5); z-index:10;}
+.layer.alert {text-align:center;}
+
+.layer.alert .layer_inner {
+	min-width:280px; max-width:320px; width:80%;
+	position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background-color:#fff; border-radius:0.375em; color:inherit; z-index:1000; overflow-y:auto; box-shadow:0 1px 2px rgba(0,0,0,0.2);
+}
+.layer.alert .layer_inner .layer_content {padding:36px 18px;}
+.layer.alert .layer_content p.txt {font-size:16px; line-height:24px; word-break:keep-all;}
+
+/* 얼랏 형 닫기 */
+.layer.alert .layer_inner div.close {position:absolute; top:15px; right:15px; width:20px; height:20px;}
+.layer.alert .layer_inner div.close button {position:relative; width:20px; height:20px; color:transparent; overflow:hidden;}
+.layer.alert .layer_inner div.close button::before,
+.layer.alert .layer_inner div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:100%; height:1px; background-color:#000;}
+.layer.alert .layer_inner div.close button::before {transform:translate(-50%,-50%) rotate(45deg);}
+.layer.alert .layer_inner div.close button::after {transform:translate(-50%,-50%) rotate(-45deg);}
+
+/* 레이어 팝업 하단 버튼 공통 */
+.layer .btn_group {display:flex; justify-content:space-between; border-top:0.5px solid #e7e7e7;}
+.layer .btn_group div {width:100%;}
+.layer .btn_group div button {height:3.75em;}
+.layer .btn_group div button.next {color:#ff3a4a; font-weight:bold;}
+.layer .btn_group div button.prev,
+.layer .btn_group div button.back,
+.layer .btn_group div button.cancel,
+.layer .btn_group div button.close {color:#000;}
+.layer .btn_group div button span {display:block; font-size:1.125em;}
+/* // 레이어팝업 */
+/* // 부가서비스 해지 전용 페이지 */
