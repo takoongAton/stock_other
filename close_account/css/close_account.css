@@ -3,7 +3,7 @@
 input, select, button {border:0 none; background-color:transparent;}
 
 .close_account_wrap div.header {display:flex; justify-content:center; align-items:center; position:-webkit-sticky; position:sticky; top:0; left:0; height:56px; background-color:#fff; z-index:1;}
-.close_account_wrap div.header h2 {font-size:16px; line-height:24px;}
+.close_account_wrap div.header h2 {color:#000; font-size:16px; line-height:24px;}
 
 /* 안내 텍스트 */
 .guide_txt {display:flex; flex-direction:column; gap:10px 0; width:100%; padding:18px; background-color:#F8F8F8;}
@@ -59,7 +59,7 @@ input, select, button {border:0 none; background-color:transparent;}
 .layer.full {position:fixed; top:0; right:0; bottom:0; left:0; background-color:#fff;}
 .layer.full div.inner {display:flex; flex-direction:column; width:100%; height:100%;}
 .layer.full div.layer_header {display:flex; justify-content:center; align-items:center; position:relative; height:56px; padding:0 42px; background-color:#fff; text-align:center;}
-.layer.full div.layer_header h2 {font-size:16px; line-height:24px;}
+.layer.full div.layer_header h2 {color:#000; font-size:16px; line-height:24px;}
 .layer.full div.layer_header button.btn_close {position:absolute; top:50%; right:18px; width:24px; height:24px; transform:translateY(-50%); overflow:hidden;}
 .layer.full div.layer_header button.btn_close::before,
 .layer.full div.layer_header button.btn_close::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:1.5px; border-radius:1.5px; background-color:#000; }
@@ -80,7 +80,7 @@ input, select, button {border:0 none; background-color:transparent;}
 	position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background-color:#fff; border-radius:0.375em; color:inherit; z-index:1000; overflow-y:auto; box-shadow:0 1px 2px rgba(0,0,0,0.2);
 }
 .layer.alert .layer_inner .layer_content {padding:36px 18px;}
-.layer.alert .layer_content p.txt {font-size:16px; line-height:24px; word-break:keep-all;}
+.layer.alert .layer_content p.txt {color:#000; font-size:16px; line-height:24px; word-break:keep-all;}
 
 /* 얼랏 형 닫기 */
 .layer.alert .layer_inner div.close {position:absolute; top:15px; right:15px; width:20px; height:20px;}
