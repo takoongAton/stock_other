@@ -22,8 +22,8 @@ input, select, button {border:0 none; background-color:transparent;}
 .chk_wrap label span.checkmark::before {content:""; display:block; position:absolute; left:50%; top:50%; width:60%; height:30%; border-width:0 0 2px 2px; border-style:solid; border-color:#ddd; transform:translate(-50%,-75%) rotate(-45deg);}
 .chk_wrap label input:checked + span.checkmark,
 .chk_wrap label input:checked + span.checkmark::before {border-color:#009DDF}
-.chk_wrap button {height:20px; line-height:1em;}
-.chk_wrap button span {font-size:14px; line-height:16px;}
+.chk_wrap button {height:20px;  line-height:1em;}
+.chk_wrap button span {display:block; font-size:14px; line-height:16px; font-weight:bold; border-bottom:1px solid #000;}
 /* // 약관 동의 */
 
 /* 페이지 입력폼 */
