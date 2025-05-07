@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta content="yes" name="apple-mobile-web-capable" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://atrobostock.com:6212//upstock-mweb/resources/interceptor/css/common_cdtype.css?321">
+    <!-- <link rel="stylesheet" href="https://atrobostock.com:6212//upstock-mweb/resources/interceptor/css/t_stock_cdtype.css?321"> -->
+    <link rel="stylesheet" href="../css/t_stock_cdtype.css?321">
+	<script	src="https://atrobostock.com:6212//upstock-mweb/resources/interceptor/js/jquery-1.12.4.js"></script>
+	<script src="https://atrobostock.com:6212//upstock-mweb/resources/interceptor/js/basic.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117079409-1&page_title=NH"></script>
+<!-- 	<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-117079409-1', {
+	  'page_title' : 'NH'
+  });
+</script>
+<script type="text/javascript" charset="utf-8">
+	var mdn = "";
+	var telCd = "";
+	var paramsObj = new Object();
+	var params = "";
+	var channelCd = "4";
+	var joinPath = "6";
+	var agreeCheckFlag;
+	var agree_termsTp = "";
+	var agree_termsFlag = "";
+	var selectAgreeFlag = "X";
+	var alertMsg = "";
+	var osCd = "";
+	
+	$(document).ready(function() {
+		function postMessageController(resultParams) {
+			// postMessage를 통해서 BACK 요청이 들어왔을 경우 이전페이지로 이동한다.
+			var value = resultParams.data.task_gubun;
+			if (value == "BACK") {
+				history.back();
+			} 
+		}
+	
+		// postMessageController 응답시 호출되는 함수
+		window.addEventListener('message', postMessageController, true);
+		
+		disabledView();
+		
+		/*$(".header").css("color", "#ff412d").css("background", "#fff");*/
+		/*$(".notice").css("color", "#ff412d").css("background", "#fff").css("font-weight", "normal").css("text-align","left");*/
+		
+		if("E2" == "E3") {
+			document.getElementById("joinbutton").innerHTML="<span>확인</span>";
+			document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+		}
+		
+		var varUA = navigator.userAgent.toLowerCase();
+		if (varUA.match('android') != null) {
+			osCd = "A";
+		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) {
+			osCd = "I";
+		} else {
+			osCd = "H";
+		}
+		
+		$("#authChkBtn").hide();
+		$("#reSend").hide();
+		
+		telCd = $("input[name='telCdRadio']:checked").val();
+		selectedTelcd(telCd);
+		
+		$("input[name='telCdRadio']").click(function() {
+			telCd = $(this).val();
+			selectedTelcd(telCd);
+		});
+		
+		$("#all-agree").click(function() {
+			gtag('event','click',{'event_category' : 'nh_allagree_button_click', 'event_label' : 'button'});
+			var chk = $(this).is(":checked");
+			if(chk) {
+				$(".all-agree input").prop("checked",true);
+				$(".typeC li input[id='termsTypeT']").prop("checked",true);
+			} else {
+				$(".all-agree input").prop("checked",false);
+				$(".typeC li input[id='termsTypeT']").prop("checked",false);
+			}
+		});
+		
+		var loadingHtml = '<div id="loading" style=" width: 100%; z-index: 100;position: absolute; top:250px;left: 0; text-align:center;"> ';
+            loadingHtml += '<div class="loading_box"><img src="/upstock-mweb/resources/interceptor/img/load-root.gif"  /></div></div>';
+            
+		$("#authBtn").click(function() {
+			
+			gtag('event','click',{'event_category' : 'nh_step1_complete_button_click', 'event_label' : 'button'});
+			
+			mdn = $("#usermdn").val();
+			
+			if(mdn == "") {
+				alert("휴대폰번호를 입력해 주세요.");
+				$("#usermdn").focus();
+				return;
+			}
+			if(mdn.match(/[^0-9]/)) {
+				alert("휴대폰번호를 확인해 주세요.");
+				$("#usermdn").focus();
+				return;
+			}
+			if(mdn.length < 11) {
+				alert("휴대폰번호 형식이 잘못되었습니다.");
+				$("#usermdn").focus();
+				return;
+			}
+			
+			// 필수 이용약관 동의 여부 체크.
+			agreeCheckFlag = true;
+			
+			$(".typeC li input[id='termsTypeT']").each(function() {
+				if ($(this).is(":checked") == false) {
+					agreeCheckFlag = false;
+				}
+			});
+			
+			// 선택 동의 체크 여부 셋팅.
+			$(".typeC li input[id='termsTypeS']").each(function() {
+				
+				agree_termsTp = $(this).val();
+				
+			    if ($(this).prop("checked") == true) {
+			    	selectAgreeFlag = "Y";
+			    	agree_termsFlag = "Y";
+			    } else {
+			    	agree_termsFlag = "N";
+			    }
+			});
+			
+			if(agreeCheckFlag == false) {
+				if("E2" == "E1") {
+					alert("약관동의를 체크해주세요.");
+					return;
+				} else {
+					if(confirm(alertMsg)) {
+						agreeCheckFlag = true;
+						selectAgreeFlag = "Y";
+						agree_termsFlag = "Y";
+						$(".all-agree input").prop("checked",true);
+						$(".typeC li input[type='checkbox']").prop("checked",true);
+					} else {
+						return;
+					}
+				}
+			}
+			
+			$('body').fadeTo( "slow", 0.4 ).append(loadingHtml);
+			$("#joinbutton").attr("disabled", "disabled");
+			
+			if(telCd == "LGT") {
+				$('body').fadeTo("slow", 1);
+				$(".loading_box").hide();
+				sendAuthSms();
+				$("#joinbutton").hide();
+				$("#authChkBtn").show();
+				$("#authNo").parent().addClass("selected");
+			} else {
+				paramsObj.telCd = telCd;
+				paramsObj.mdn = mdn;
+				paramsObj.channelCd = channelCd;
+				paramsObj.joinPath = joinPath;
+				params = JSON.stringify(paramsObj);
+
+				$.ajax({
+					"type": "POST",
+					"url": "/upstock-mweb/system/getJoinStateInfoAjax",
+					"contentType": "application/json",
+					"dataType": "json",
+					"data": params,
+					success : function(data) {
+						if(data.resultCd == '03') {
+							alert(data.resultMsg);
+							disabledView();
+						} else if(data.resultCd == '0099') {
+							alert(data.resultMsg);
+							disabledView();
+						} else if(data.resultCd == '0000'){
+							$('body').fadeTo("slow", 1);
+							$(".loading_box").hide();
+							sendAuthSms();
+							$("#joinbutton").hide();
+							$("#authChkBtn").show();
+							$("#authNo").parent().addClass("selected");
+						} else {
+							alert(data.resultMsg);
+							disabledView();
+						}
+					}, error : function(jqXHR, textStatus, errorThrown) {
+						alert("시스템 에러가 발생하였습니다.\n문의 : 1800-4283");
+						disabledView();
+					}
+				});
+			}				
+		});	
+		
+		$("#authChkBtn").click(function() {
+			
+			gtag('event','click',{'event_category' : 'nh_step2_complete_button_click', 'event_label' : 'button'});
+			var authNo = $("#authNo").val();
+
+	    	if(authNo == ""){
+	    		alert("인증번호를 입력해 주세요.");
+	    		$("#authNo").focus();
+	    		return;
+	    	}
+	    	if( authNo.match(/[^0-9]/)) {
+				alert("인증번호를 확인해 주세요.");
+				$("#authNo").focus();
+				return;
+	    	}
+	    	if( authNo.length < 6) {
+				alert("인증번호는 6자리 숫자입니다.");
+				$("#authNo").focus();
+				return;
+			}
+	    	
+	    	var agreeList = new Array();
+			var agreeData = new Object();
+			agreeData.termsTp = agree_termsTp;
+			agreeData.termsFlag = agree_termsFlag;
+	    	agreeList.push(agreeData);
+	    	
+	    	$('body').fadeTo( "slow", 0.4 ).append(loadingHtml);
+	    	$("#authChkBtn").attr("disabled", "disabled");
+	    	
+	    	$.ajax({
+	    		"type": "POST",
+	    		"url": "/upstock-mweb/system/joinPayNhAjax",
+	    		"dataType": "json",
+	    		"data": {
+					"osCd" : osCd,
+					"userMdn" : mdn,
+					"telCd" : telCd,
+					"authNo" : authNo,
+					"agreeYn" : selectAgreeFlag,
+					"agreeList" : agreeList
+				},
+	    		success : function(data) {
+	    			if(data.resultCd == '0000' || data.resultCd == '00') {
+	    				gtag('event','click',{'event_category' : 'nh_join_complete', 'event_label' : 'status'});
+	    				document.getElementById("nm_t").value = mdn;
+	    				document.getElementById("newJoin").value = data.newJoin;
+	    				$("#joinComplete").submit();
+	    			} else {
+	    				alert(data.resultMsg);
+	    				disabledView();
+	    			}
+	    		}, error : function(jqXHR, textStatus, errorThrown) {
+	    			alert("시스템 에러가 발생하였습니다.\n문의 : 1800-4283");
+	    			disabledView();
+	    		}
+	    	});
+			
+		});
+		
+		$("#reSend").click(function() {
+			sendAuthSms();
+		});
+	});
+	
+	function getTerms(telCd) {
+		
+		paramsObj.telCd = telCd;
+		paramsObj.channelCd = channelCd;
+		params = JSON.stringify(paramsObj);
+		
+		$.ajax({
+			"type": "POST",
+			"url": "/upstock-mweb/system/getTermsListAjax",
+			"contentType": "application/json",
+			"dataType": "json",
+			"data": params,
+			success : function(datas){
+				if(datas.resultCode != '0000') {
+					alert(datas.resultMsg);
+				} else {
+					
+					$.each(datas.termsList, function(key, item) {
+						$("#"+item.termsTp+"t").html(item.title);
+						$("#"+item.termsTp).html(item.content);
+					});
+					
+				}
+			}, error : function(jqXHR, textStatus, errorThrown) {
+				alert("시스템 에러가 발생하였습니다.\n문의 : 1800-4283");
+			}
+		});
+	}
+	
+	function selectedTelcd(telCd) {
+		
+		getTerms(telCd);
+		
+		if (telCd == "SKT") {
+			if("E2" == "E1") {
+				document.getElementById("joinbutton").innerHTML="<span>T주식정보 유료가입하기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>T주식정보 유료가입하기</span>";
+			} else if("E2" == "E2") {
+				document.getElementById("joinbutton").innerHTML="<span><span>T주식정보 유료가입하고</span>투자정보 받기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			} else if("E2" == "E4") {
+				document.getElementById("joinbutton").innerHTML="<span>T주식정보 유료가입 이벤트 참여</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			}
+			
+			sktView();
+		} else if (telCd == "KT") {
+			if("E2" == "E1") {
+				document.getElementById("joinbutton").innerHTML="<span>AT스탁플러스 유료가입하기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>AT스탁플러스 유료가입하기</span>";
+			} else if("E2" == "E2") {
+				document.getElementById("joinbutton").innerHTML="<span><span>AT스탁플러스 유료가입하고</span>투자정보 받기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			} else if("E2" == "E4") {
+				document.getElementById("joinbutton").innerHTML="<span>AT스탁플러스 유료가입 이벤트 참여</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			}
+			
+			ktView();
+		} else if (telCd == "LGT") {
+			if("E2" == "E1") {
+				document.getElementById("joinbutton").innerHTML="<span>U+스탁 유료가입하기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>U+스탁 유료가입하기</span>";
+			} else if("E2" == "E2") {
+				document.getElementById("joinbutton").innerHTML="<span><span>U+스탁 유료가입하고</span>투자정보 받기</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			} else if("E2" == "E4") {
+				document.getElementById("joinbutton").innerHTML="<span>U+스탁 유료가입 이벤트 참여</span>";
+				document.getElementById("authChkBtn").innerHTML="<span>인증번호 확인</span>";
+			}
+			
+			lguView();
+		}
+	}
+	
+	function sktView() {
+		alertMsg = "SKT T주식정보 이용약관 동의가 필요합니다. 모두 동의하시겠습니까?";
+		$("#h1_skt").show();
+		$("#h1_kt").hide();
+		$("#h1_lgt").hide();
+		$("#addTxt_skt").show();
+		$("#addTxt_kt").hide();
+		$("#addTxt_lgt").hide();
+		$("#termsSKT").show();
+		$("#termsKT").hide();
+		$("#termsLGT").hide();
+		$("#notice_skt").show();
+		$("#notice_kt").hide();
+		$("#notice_lgt").hide();
+		$("#f-skt").show();
+		$("#f-kt").hide();
+		$("#f-lgt").hide();
+	}
+	
+	function ktView() {
+		alertMsg = "KT AT스탁플러스 이용약관 동의가 필요합니다. 모두 동의하시겠습니까?";
+		$("#h1_skt").hide();
+		$("#h1_kt").show();
+		$("#h1_lgt").hide();
+		$("#addTxt_skt").hide();
+		$("#addTxt_kt").show();
+		$("#addTxt_lgt").hide();
+		$("#termsSKT").hide();
+		$("#termsKT").show();
+		$("#termsLGT").hide();
+		$("#notice_skt").hide();
+		$("#notice_kt").show();
+		$("#notice_lgt").hide();
+		$("#f-skt").hide();
+		$("#f-kt").show();
+		$("#f-lgt").hide();
+	}
+	
+	function lguView() {
+		alertMsg = "LGU+ U+스탁 이용약관 동의가 필요합니다. 모두 동의하시겠습니까?";
+		$("#h1_skt").hide();
+		$("#h1_kt").hide();
+		$("#h1_lgt").show();
+		$("#addTxt_skt").hide();
+		$("#addTxt_kt").hide();
+		$("#addTxt_lgt").show();
+		$("#termsSKT").hide();
+		$("#termsKT").hide();
+		$("#termsLGT").show();
+		$("#notice_skt").hide();
+		$("#notice_kt").hide();
+		$("#notice_lgt").show();
+		$("#f-skt").hide();
+		$("#f-kt").hide();
+		$("#f-lgt").show();
+	}
+	
+	function sendAuthSms() {
+		alert("인증번호를 발송하였습니다.");
+		var threeMinutes = 60*3;
+		$.ajax({
+			"type": "POST",
+			"url": "/upstock-mweb/system/sendAuthSmsAjax",
+			"dataType": "json",
+			"data": {
+		    	"osCd" : osCd,
+				"userMdn" : mdn,
+				"telCd" : telCd,
+				"channelCd" : channelCd,
+				"reqTp" : "02"
+			},
+			success: function(data) {
+				if(data.resultCd == '0000') {
+					startTimer(threeMinutes);
+					$("#authBtn").hide();
+					$("#reSend").show();
+					$("#authNo").removeAttr("disabled");
+					true;
+				} else {
+					alert(data.resultMsg);
+				}
+			}, error: function(jqXHR, textStatus, errorThrown) {
+				clearInterval(timer);
+				alert("시스템 에러가 발생하였습니다.\n문의 : 1800-4283");
+			}
+		});
+	}
+	
+	function startTimer(duration) {
+		clearInterval(timer);
+    	var t = duration, minutes, seconds;
+    	timer = setInterval(function () {
+            minutes = parseInt(t / 60, 10);
+            seconds = parseInt(t % 60, 10);
+
+            minutes = minutes < 10 ? minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+			
+            document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+			if (--t < 0) {
+				clearInterval(timer);
+				alert("인증시간이 만료되었습니다.\n인증번호를 다시 요청해주세요.");
+				location.reload();
+				return;
+            }
+        }, 1000);
+    }
+	
+	function maxLengthCheck(object){
+	    if (object.value.length > object.maxLength){
+	      object.value = object.value.slice(0, object.maxLength);
+      	}
+	}
+	
+	function disabledView() {
+		$('body').fadeTo("slow", 1);
+		$(".loading_box").hide();
+		$("#authBtn").removeAttr("disabled");
+	}
+</script> -->
+</head>
+
+<body>
+	<div class="wrap fType">
+		<header class="header">
+			<h1 id="h1_skt"><em>T펀드</em> <span class="txt-primary">유료부가서비스</span></h1>
+			<!-- <h1 id="h1_kt"><em>AT스탁플러스</em> <span class="txt-primary">유료부가서비스</span></h1>
+			<h1 id="h1_lgt"><em>U+스탁</em> <span class="txt-primary">유료부가서비스</span></h1> -->
+		</header>
+
+		<div class="notice" id="notice_skt"><em>T펀드</em> 서비스는 나의 투자스타일을 분석하여 로보어드바이저가 추천하는 맞춤형 펀드부터 투자 뉴스까지 한눈에 확인할 수 있는 <strong>월 5,500원(부가세포함) 펀드정보 서비스</strong>입니다.</div>
+		<!-- <div class="notice" id="notice_kt"><em>AT스탁</em> 서비스는 나의 투자스타일을 분석하여 로보어드바이저가 추천하는 맞춤형 펀드부터 투자 뉴스까지 한눈에 확인할 수 있는 <strong>월 5,500원(부가세포함) 펀드정보 서비스</strong>입니다.</div>
+		<div class="notice" id="notice_lgt"><em>U+스탁</em> 서비스는 나의 투자스타일을 분석하여 로보어드바이저가 추천하는 맞춤형 펀드부터 투자 뉴스까지 한눈에 확인할 수 있는 <strong>월 5,500원(부가세포함) 펀드정보 서비스</strong>입니다.</div> -->
+
+		<!-- <div class="bnr"><img src="http://via.placeholder.com/375x65"></div> -->
+
+		<section class="content">
+			<div class="content-wrap">
+				
+				<div class="ev_success_wrap">
+					<div class="item">
+						<div class="img">
+							<img src="../images/join_s_img.png" alt="서비스 가입완료" />
+						</div>
+						<h2 class="tit">서비스 가입이 완료되었습니다.</h2>
+						<p class="txt"><strong>펀드 서비스에서 고객님의 맞춤 상품을 간편하게 찾아보세요.</strong></p>
+					</div>
+					<div class="item">
+						<div class="img">
+							<span><img src="../images/app_link_skt.png" alt="PASS_SKT" /></span>
+							<span><img src="../images/app_link_uplus.png" alt="PASS_uPlus" /></span>
+						</div>
+						<h2 class="tit">펀드정보는 PASS APP에서 이용 가능합니다.</h2>
+						<ol>
+							<li>
+								<span>1</span><p>구글스토어/앱스토어에서 PASS APP설치</p>
+							</li>
+							<li>
+								<span>2</span><p>PASS 가입 후 <em>T펀드</em> 또는 <em>PASS 스탁 메뉴에서 이용</em></p>
+							</li>
+						</ol>	
+					</div>
+				</div>
+
+			</div><!-- // content-wrap -->
+
+		</section>
+
+		<footer class="footer">
+			<ul class="list_type2">
+				<li><span>*</span>본 서비스는 PASS앱에서 이용 가능합니다</li>
+				<li><span>*</span>본 서비스는 SKT,KT,LGU+와 제휴하여 <span class="blueHighlight">㈜아톤</span>이 운영합니다.</li>
+				<li><span>*</span>고객센터(이용/해지) : <span class="blueHighlight">1800-4278</span></li>
+			</ul>
+			<!--
+			<ul id="f-skt"><li>이벤트 경품 : 현금 10만원</li><li>지급조건 : 이벤트 기간 내 신규가입시 자동 참여되며, 유료가입 후 30일이상 서비스 유지자 중 매주 1명 추첨을 통해 경품 지급 (휴대폰번호당 최대 1회)</li><li>당첨자 발표<br>- 1차 발표일 2019.11.4 / 이후 매주 월요일 개별 발표</li><li>당첨되신 분께는 개별적으로 연락드릴 예정이며, 3회 이상 응답하지 않으시면 당첨이 취소됩니다.</li><li>제세공과금<br>- SKT이 부담</li><li>본 이벤트는 제공업체의 사정에 의해 별도의 고지 없이 중단/변경될 수 있습니다.</li><li>이벤트 관련 문의 : 1800-4283</li></ul>
+			<ul id="f-kt" style="display: none;"><li>이벤트 경품 : 현금 100만원</li><li>지급조건 : 이벤트 기간 내 신규가입시 자동 참여되며, 유료가입 후 30일이상 서비스 유지자 중 매주 1명 추첨을 통해 경품 지급 (휴대폰번호당 최대 1회)</li><li>당첨자 발표<br>- 1차 발표일 2019.11.11 / 이후 매주 월요일 개별 발표</li><li>당첨되신 분께는 개별적으로 연락드릴 예정이며, 3회 이상 응답하지 않으시면 당첨이 취소됩니다.</li><li>제세공과금<br>- 고객 부담 (제세공과금 처리를 위한 추가서류를 요청할 수 있습니다.)</li><li>본 이벤트는 제공업체의 사정에 의해 별도의 고지 없이 중단/변경될 수 있습니다.</li><li>이벤트 관련 문의 : 1800-4283<br></li></ul>
+			<ul id="f-lgt" style="display: none;"><li>이벤트 경품 : 현금 10만원</li><li>지급조건 : 이벤트 기간 내 신규가입시 자동 참여되며, 유료가입 후 30일이상 서비스 유지자 중 매주 1명 추첨을 통해 경품 지급 (휴대폰번호당 최대 1회)</li><li>당첨자 발표<br>- 1차 발표일 2019.11.4 / 이후 매주 월요일 개별 발표</li><li>당첨되신 분께는 개별적으로 연락드릴 예정이며, 3회 이상 응답하지 않으시면 당첨이 취소됩니다.</li><li>제세공과금<br>- 고객 부담 (제세공과금 처리를 위한 추가서류를 요청할 수 있습니다.)</li><li>본 이벤트는 제공업체의 사정에 의해 별도의 고지 없이 중단/변경될 수 있습니다.</li><li>이벤트 관련 문의 : 1800-4283<br></li></ul>
+			-->
+		</footer>
+	</div>
+	<div class="dimT01" onclick="javascript:pop_close('T01')"></div>
+	<div class="layer-popT01">
+		<h2 class="pop-tit">
+			<pre id="T01t"></pre>
+			<button onclick="javascript:pop_close('T01')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="T01"></pre></div>
+	</div>
+	<div class="dimT02" onclick="javascript:pop_close('T02')"></div>
+	<div class="layer-popT02">
+		<h2 class="pop-tit">
+			<pre id="T02t"></pre>
+			<button onclick="javascript:pop_close('T02')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="T02"></pre></div>
+	</div>
+	<div class="dimT03" onclick="javascript:pop_close('T03')"></div>
+	<div class="layer-popT03">
+		<h2 class="pop-tit">
+			<pre id="T03t"></pre>
+			<button onclick="javascript:pop_close('T03')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="T03"></pre></div>
+	</div>
+	<div class="dimT04" onclick="javascript:pop_close('T04')"></div>
+	<div class="layer-popT04">
+		<h2 class="pop-tit">
+			<pre id="T04t"></pre>
+			<button onclick="javascript:pop_close('T04')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="T04"></pre></div>
+	</div>
+	<div class="dimT06" onclick="javascript:pop_close('T06')"></div>
+	<div class="layer-popT06">
+		<h2 class="pop-tit">
+			<pre id="T06t"></pre>
+			<button onclick="javascript:pop_close('T06')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="T06"></pre></div>
+	</div>
+	<div class="dimS05" onclick="javascript:pop_close('S05')"></div>
+	<div class="layer-popS05">
+		<h2 class="pop-tit">
+			<pre id="S05t"></pre>
+			<button onclick="javascript:pop_close('S05')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="S05"></pre></div>
+	</div>
+	<div class="dimS07" onclick="javascript:pop_close('S07')"></div>
+	<div class="layer-popS07">
+		<h2 class="pop-tit">
+			<pre id="S07t"></pre>
+			<button onclick="javascript:pop_close('S07')" class="esc">
+				<img src="/upstock-mweb/resources/interceptor/img/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll"><pre id="S07"></pre></div>
+	</div>
+	<form id="joinComplete" method="post" action="../offer/joinComplete">
+		<input type="hidden" id="nm_t" name="nm_t" value="">
+		<input type="hidden" id="newJoin" name="newJoin" value="">
+	</form>
+
+<script>
+$(document).ready(function(){
+	$(".wrap.fType header").on("click", function(){
+		$(".wrap").toggleClass("strict");
+	})
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+@charset "utf-8";
+@import url(font.css);
+
+/* reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-font-smoothing: antialiased
+}
+
+html,
+body {
+	height: 100%
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button,
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+    letter-spacing: .01rem;
+}
+
+body {
+	background-color: #fff;
+	font: 1rem/1.2 'Noto Sans', Dotum, Gulim, Sans-serif;
+	letter-spacing: 0rem;
+	color: #222;
+	-webkit-text-size-adjust: none
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+blockquote,
+q {
+	quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed
+}
+
+hr {
+	display: none
+}
+
+img,
+video,
+audio,
+object,
+embed,
+iframe {
+	max-width: 100%
+}
+
+img {
+	height: auto;
+	vertical-align: top
+}
+
+em,
+i,
+address {
+	font-style: normal
+}
+
+a {
+	text-decoration: none
+}
+
+legend,
+caption {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	clip: rect(1px, 1px, 1px, 1px)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong,
+b,
+th {
+	font-weight: 500
+}
+
+pre {
+	word-break: break-all;
+	white-space: pre-line
+}
+
+.scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch
+}
+
+:focus {
+	outline: 0
+}
+
+/* form */
+input,
+textarea,
+button,
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	font-size: 1.2em;
+	font-family: 'Noto Sans', Dotum, Gulim, Sans-serif;
+}
+select::-ms-expand { display: none; }
+
+button {
+	cursor: pointer;
+	border: none;
+	background: none;
+	-webkit-appearance: none
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0;
+	border: 1px solid #999;
+}
+
+input[type="radio"] {
+	-webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position:relative;
+}
+input[type="checkbox"]:after{
+	content: "";
+	display:block;
+	width:4vw;
+	height:4vw;
+	border:1px solid #bbb;
+}
+input[type="checkbox"]:checked:after{
+	background-color:#bbb;
+	background-image:url('../images/check.png');
+	background-repeat:no-repeat;
+	background-size:95%;
+	background-position:60% 45%;
+}
+input[type="checkbox"].red:after{
+	content: "";
+	display:block;
+	width:4.5vw;
+	height:4.5vw;
+	border:1px solid #ff3434;
+}
+input[type="checkbox"].red:checked:after{
+	background-color:#ff3434;
+}
+input[type="checkbox"] + label{
+	color:#999;
+	margin-left:1vw;
+	letter-spacing:-.3vw;
+	position:relative;
+	top:-.5vw;
+}
+input[type="checkbox"].red + label{
+	color:#ff3434;
+	font-size:1.3em;
+	top:0;
+	margin-left:2vw;
+}
+
+input:checked[type="checkbox"],
+input:checked[type="radio"] {
+	background-color: transparent
+}
+
+input[type="number"],
+input[type="tel"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+select {
+	width: 100%;
+	height: 14vw;
+	line-height: inherit;
+	font-size: 1.16;
+	margin:1px 0;
+}
+
+select{background:url('../images/arrow.png')no-repeat;background-size:2vw;background-position:95% 49%;}
+
+input::-webkit-input-placeholder {
+	padding-top: .3rem;
+	font-weight: 400;
+	color: #999999;
+}
+
+/* button */
+button {
+	cursor: pointer;
+	border: none;
+	background: none;
+	-webkit-appearance: none
+}
+
+.btn-group{padding:4vw 4vw 5vw;background:#fff;}
+.btn{margin:1.5vw 0;}
+.btn-sm{padding:2.2vw 4vw 2.5vw;font-size:1em;}
+.btn-big{width:100%;padding:4vw 0 4.5vw;}
+.btn.btn-primary{background:#ff3434;color:#fff;}
+.btn.btn-white{border:1px solid #bbb;color:#999;}
+.btn.btn-gray{background:#bbb;color:#fff;}
+.btn-big.btn-row-2{padding:3.5vw 0 3.8vw;font-size:1.4em;font-weight:500;}
+.btn-big.btn-row-2 .txt-sm{margin-bottom:.3vw;font-size:.58em;font-weight:100;}
+
+/* text */
+.txt-primary{color:#ff412d !important;}
+.txt-brown{color:#c65f54 !important;}
+.txt-blue{color:#1b6cf5 !important;}
+
+@media screen and (min-width: 450px) and (max-width: 600px) {
+	input[type="checkbox"] + label{
+		top:0;
+		margin-left:1.5vw;
+	}
+	input[type="checkbox"].red + label{
+		top:.7vw;
+		margin-left:2vw;
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+	input[type="checkbox"] + label{
+		top:.6vw;
+		margin-left:2.5vw;
+	}
+   input[type="checkbox"].red + label{
+		top:1.3vw;
+		margin-left:3vw;
+   }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+	input[type="checkbox"] + label{
+		top:1.1vw;
+		margin-left:3vw;
+	}
+   input[type="checkbox"].red + label{
+		top:1.6vw;
+		margin-left:4vw;
+   }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+	input[type="checkbox"] + label{
+		top:1.5vw;
+		margin-left:3.5vw;
+	}
+   input[type="checkbox"].red + label{
+		top:2vw;
+		margin-left:4vw;
+   }
+}
+
+@media screen and (min-width: 1200px) {
+   select{
+   		height:60px;
+   		padding:0;
+   		background-size:10px;
+   		font-size:1.1em;
+   		background-position:95% 50%;
+   }
+
+   input[type="text"],
+   input[type="number"]{
+   		height:60px;
+   		padding:0;
+   		font-size:1.1em;
+   }
+	
+	input[type="checkbox"]:after{
+		width:15px;
+		height:15px;
+	}
+	input[type="checkbox"] + label{
+		margin-left:5px;
+		top:-3px;
+		letter-spacing:-1px;
+	}
+	input[type="checkbox"].red:after{
+		width:15px;
+		height:15px;
+	}
+	input[type="checkbox"].red + label{
+		font-size:1.2em;
+		margin-left:5px;
+		top:-2px;
+	}
+
+   .btn-group{padding:20px;}
+   .btn{margin:5px 0;font-size:1.1em;}
+   .btn-sm{padding:10px 20px;font-size:1em;}
+   .btn-big{padding:17px 0 18px;}
+   .btn-big.btn-row-2{padding:15px 18px;}
+}

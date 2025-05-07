@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>T stock join</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/t_stock.css">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/basic.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header">
+			<h1>T주식정보 <span class="txt-brown">이통사 유료부가서비스</span></h1>
+		</header>
+		<section class="content">
+			<div class="content-wrap">
+				<!-- <div class="top-banner">
+					<img src="../images/bg_img.jpg" />
+					<h2>프리미엄 종목 추천 서비스</h2>
+					<ul class="service-list">
+						<li>증권 트렌드 분석을 통한 종목추천</li>
+						<li>오늘 상장한 IPO 기업 분석</li>
+						<li>투자자가 꼭 봐야할 뉴스까지</li>
+					</ul>
+				</div> -->
+
+				<div class="top-banner2">
+					<div class="popTxt" style="display:block;">아래 휴대폰 인증 후 VIP투자정보를 확인하세요.</div>
+
+					<div class="inbox">
+						<div class="txt">
+							<h2>목표가가 올라갔습니다!</h2>
+							<span class="day">2019.08.07<span class="bul"></span></span>
+						</div>
+
+						<div class="inList">
+							<div>
+								<span class="co">에스원</span>
+								<span class="be">0원</span>
+								<span class="af">128,000원</span>
+							</div>
+							<div>
+								<span class="co">대림산업</span>
+								<span class="be">104,000원</span>
+								<span class="af">130,000원</span>
+							</div>
+							<div>
+								<span class="co">효성화학</span>
+								<span class="be">230,000원</span>
+								<span class="af">328,000원</span>
+							</div>
+						</div>
+					</div>
+				</div><!-- // top-banner2 -->
+
+				<div class="insert-number">
+					<h3 class="typeD"><span>휴대폰번호 인증 후</span> 투자정보 더 보기</h3>
+					<!-- 
+					<h3>정보를 받으실 휴대폰번호를 입력하세요.</h3>
+					<p class="txt-primary">* 가입 즉시 이용 가능합니다.</p>
+					<div class="input-wrap">
+						<select class="mobile-carrier">
+							<option>SKT</option>
+							<option>KT</option>
+							<option>LG U+</option>
+						</select>
+						<input type="text" placeholder="휴대폰번호 입력">
+					</div>
+					-->
+
+					<div class="inputWrap">
+						<ul class="radio">
+							<li>
+								<input type="radio" id="divide01" name="telCdRadio" checked value="SKT" class="telCdRadioSkt">
+								<label class="fs20" for="divide01"><span>SKT</span></label>
+							</li>
+							<li>
+								<input type="radio" id="divide02" name="telCdRadio" value="KT" class="telCdRadioKt">
+								<label class="fs20" for="divide02"><span>KT</span></label>
+							</li>
+							<li>
+								<input type="radio" id="divide03" name="telCdRadio" value="LGT" class="telCdRadioLgt">
+								<label class="fs20" for="divide03"><span>LG U+</span></label>
+							</li>
+						</ul>
+
+						<div class="phoneNum"><input type="tel" placeholder="휴대폰 번호를 입력하세요." /></div>
+						<!-- <div class="phoneNum2">
+							<select>
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+								<option value="070">070</option>
+							</select>
+							<input type="tel" placeholder="휴대폰 번호를 입력하세요." />
+						</div>
+						<div class="phoneNum3">
+							<select>
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+								<option value="070">070</option>
+							</select>
+							<input type="tel" placeholder="휴대폰번호 입력" />
+							<button type="button" class="btn_certify"><span>인증요청</span></button>
+						</div> -->
+
+						<button type="button" class="btn_certify"><span>인증번호 요청하기</span></button>
+						<div class="certify"><input type="phone" title="인증번호 입력" placeholder="인증번호 입력" disabled /><span class="time">3:00</span></div>
+					</div><!-- // input-wrap -->
+
+				</div>
+				<!-- <div class="btn-group">
+					<button class="btn btn-big btn-primary btn-row-2"><p class="txt-sm">T주식정보 유료가입하고</p>투자정보 받기</button>
+					<button class="btn btn-big btn-white">취소</button>
+				</div> -->
+
+				<div class="terms-agree">
+					
+					<ul class="typeC">
+						<li><input type="checkbox" /><label onclick="pop_open();">이용약관</label></li>
+						<li><input type="checkbox" /><label onclick="pop_open();">개인정보수집</label></li>
+						<li><input type="checkbox" /><label onclick="pop_open();">광고동의(선택)</label></li>
+						<li><input type="checkbox" /><label onclick="pop_open();">SKT개인정보제3자제공</label></li>
+						<li><input type="checkbox" /><label onclick="pop_open();">개인정보제3자제공</label></li>
+					</ul>
+
+					<div class="all-agree">
+						<input class="red" type="checkbox" id="all-agree" />
+						<label for="all-agree">전체동의</label>
+					</div>
+
+					<div class="btn_g_default">
+						<button type="button" class="btn_gray1"><span>T주식정보 유료가입하기</span></button>
+						<button type="button" class="btn_gray1"><span><span>T주식정보 유료가입하고</span>투자정보 받기</span></button>
+						<button type="button" class="btn_gray1"><span>확인</span></button>
+						<button type="button" class="btn_gray1"><span>T주식정보 유료가입 이벤트 참여</span></button>
+						<button type="button" class="btn_certify"><span>인증번호 확인</span></button>
+					</div><!-- // btn_g_default -->
+
+				</div>
+			</div>
+
+			<div class="notice">
+				T주식정보 가입 시<br>
+				<span class="txt-primary">매월 11,000원(VAT 포함)</span>이 통신요금에 포함됩니다.
+			</div>
+		</section>
+		<footer class="footer">
+			<ul>
+				<li>본 서비스는 SKT 고객만 이용 가능합니다.</li>
+				<li>투자정보는 패스앱에서도 확인 가능합니다.</li>
+				<li>T주식정보는 PASS 부가서비스로 T주식정보 가입 시<br>PASS서비스에 같이 가입됩니다.</li>
+				<li>가입/해지 : PASS앱 또는 SKT 고객센터 (114)</li>
+				<li>주식정보문의 : (주)에이티애널리틱스(02-318-0802), cs@analyticsfn.com</li>
+				<li>본 서비스의 정보는 (주)에이티애널리틱스가 제공하며 투자를 위한 참고자료입니다. 투자판단의 책임은 투자자 본인에게 있으며 SK텔레콤(주)와 (주)에이티애널리틱스는 법적 책임을 지지 않습니다.</li>
+			</ul>
+		</footer>
+	</div>
+	<div class="dim" onclick="pop_close()"></div>
+	<div class="layer-pop">
+		<h2 class="pop-tit">
+			<span id="test">개인정보 수집 및 이용동의</span>
+			<button onclick="pop_close()" class="esc">
+				<img src="../images/esc.png" />
+			</button>
+		</h2>
+		<div class="scroll">
+			주식회사 아톤(이하 “회사”)는 T주식정보(이하’서비스’)의 서비스와 관련하여 취득한 가입정보보호를 위해 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법
+			주식회사 아톤(이하 “회사”)는 T주식정보(이하’서비스’)의 서비스와 관련하여 취득한 가입정보보호를 위해 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법
+			주식회사 아톤(이하 “회사”)는 T주식정보(이하’서비스’)의 서비스와 관련하여 취득한 가입정보보호를 위해 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법
+			주식회사 아톤(이하 “회사”)는 T주식정보(이하’서비스’)의 서비스와 관련하여 취득한 가입정보보호를 위해 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법
+			주식회사 아톤(이하 “회사”)는 T주식정보(이하’서비스’)의 서비스와 관련하여 취득한 가입정보보호를 위해 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법
+		</div>
+	</div>
+
+</body>
+</html>

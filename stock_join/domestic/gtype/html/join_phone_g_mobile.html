@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-capable" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://atstockplus.co.kr:8090/resources/css/common_cdtype.css?20200618">
+    <link rel="stylesheet" href="../css/t_stock_cdtype.css?321">
+    <!-- <link rel="stylesheet" href="https://atrobostock.com:6212//upstock-mweb/resources/interceptor/css/t_stock_cdtype.css?321">
+    <link rel="stylesheet" href="https://atstockplus.co.kr:8090/resources/css/t_stock_cdtype.css?20200618"> -->
+	<script src="https://atstockplus.co.kr:8090/resources/js/jquery-1.11.1.min.js"></script>
+	<script src="https://atstockplus.co.kr:8090/resources/js/basic.js?20200622"></script>
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136832193-1&page_title=" + "V3" + "_" + "001"></script> -->
+</head>
+<body>
+<div class="wrap gType">
+	<header>
+		<dl>
+			<dt class="h1_wrap telecom_con">
+				<h1 class="telecom_item" id="h1_skt"><em>주식정보</em></h1>
+				<h1 class="telecom_item" id="h1_kt"><em>AT스탁플러스</em></h1>
+				<h1 class="telecom_item" id="h1_lgt"><em>PASS스탁</em></h1>
+			</dt>
+			<dd>
+				<div><p>이동통신사 유료부가서비스</p></div>
+			</dd>
+		</dl>
+	</header>
+
+	<div class="notice_wrap telecom_con">
+		<p class="notice telecom_item" id="notice_skt" style="display:none;"><em>주식정보</em> 서비스는 검증된 빅데이터 분석을 통한 유망종목 추천, 투자 성향에 따라 다양한 유형의 포트폴리오 제공, 증권사 추천주 및 주요 공시 요약을 한 번에 확인할 수 있는 종합 주식 정보 서비스입니다.<br /><strong>* 매월 부가세 포함 11,000원</strong></p>
+		<p class="notice telecom_item" id="notice_kt" style="display:none;"><em>AT스탁플러스</em> 서비스는 검증된 빅데이터 분석을 통한 유망종목 추천, 투자 성향에 따라 다양한 유형의 포트폴리오 제공, 증권사 추천주 및 주요 공시 요약을 한 번에 확인할 수 있는 종합 주식 정보 서비스입니다.<br /><strong>* 매월 부가세 포함 11,000원</strong></p>
+		<p class="notice telecom_item" id="notice_lgt" style="display:none;"><em>PASS스탁</em> 서비스는 검증된 빅데이터 분석을 통한 유망종목 추천, 투자 성향에 따라 다양한 유형의 포트폴리오 제공, 증권사 추천주 및 주요 공시 요약을 한 번에 확인할 수 있는 종합 주식 정보 서비스입니다.<br /><strong>* 매월 부가세 포함 11,000원</strong></p>
+	</div>
+
+	<section class="content">
+		<div class="content-wrap">
+
+			<div class="signUp_content_wrap">
+				<div class="signUp_aside">
+					<div><img src="../images/temp/bnr_sample_mobile.png" alt="초보자도 수익내는 투자정보 확인하기"></div>
+				</div><!-- // signUp_aside -->
+
+				<div class="signUp_section">
+				
+					<div class="signUp_wrap">
+
+						<div class="signUp_form">
+							<ul class="radio">
+								<li>
+									<input type="radio" id="divide01" name="telCdRadio" checked value="SKT" class="telCdRadioSkt">
+									<label class="fs20" for="divide01"><span>SKT</span></label>
+								</li>
+								<li>
+									<input type="radio" id="divide02" name="telCdRadio" value="KT" class="telCdRadioKt">
+									<label class="fs20" for="divide02"><span>KT</span></label>
+								</li>
+								<li>
+									<input type="radio" id="divide03" name="telCdRadio" value="LGT" class="telCdRadioLgt">
+									<label class="fs20" for="divide03"><span>LG U+</span></label>
+								</li>
+							</ul>
+
+							<div class="terms-agree">
+								<div class="all-agree">
+									<div>
+										<label for="all-agree">
+											<input class="red" type="checkbox" id="all-agree">
+											<span class="checkmark"></span>
+											<span class="txt">약관 모두 동의</span>
+										</label>
+									</div>
+								</div>
+								<div class="agree telecom_con">
+									<ul class="telecom_item" id="termsSKT">
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T01"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T01');">이용약관</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T06"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T06');">개인정보수집</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeS" value="S07"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('S07');">광고동의(선택)</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T03"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T03');">SKT개인정보제3자제공</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T02"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T02');">개인정보제3자제공</span></div></li>
+									</ul>
+									<ul class="telecom_item" id="termsKT">
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T01"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T01');">이용약관</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T02"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T02');">개인정보수집</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeS" value="S05"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('S05');">광고동의(선택)</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T04"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T04');">KT개인정보제3자제공</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T03"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T03');">개인정보제3자제공</span></div></li>
+									</ul>
+									<ul class="telecom_item" id="termsLGT">
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T01"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T01');">이용약관</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T02"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T02');">개인정보수집</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeS" value="S05"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('S05');">광고동의(선택)</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T04"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T04');">U+개인정보제3자제공</span></div></li>
+										<li><div><label><input type="checkbox" id="termsTypeT" value="T03"><span class="checkmark"></span></label><span class="txt" onclick="javascript:pop_open('T03');">개인정보제3자제공</span></div></li>
+									</ul>
+								</div>
+							</div><!-- terms-agree -->
+
+							<div class="phoneNum"><input type="tel" maxlength="11" pattern="\d*" id="usermdn" min="0" max="11" oninput="maxLengthCheck(this)" placeholder="휴대폰 번호를 입력하세요."></div>
+							
+							<div class="certify_wrap">
+								<div class="certify" style="display:none;">
+									<input id="authNo" maxlength="6" pattern="\d*" type="number" min="0" max="6" oninput="maxLengthCheck(this)" title="인증번호 입력" placeholder="인증번호를 입력하세요." disabled=""><span class="time" id="timer">00:00</span>
+									<!-- <button type="button" class="btn_gray1" id="reSend"><span>재요청</span></button> -->
+								</div>
+								<div><button type="button" class="btn_certify" id="authBtn"><span>인증번호 요청</span></button></div>
+							</div>
+
+							<div class="btn_g_default">
+								<div class="">
+									<button type="button" class="btn_gray1 telecom_con" id="joinbutton" disabled="disabled">
+										<span class="telecom_item">주식정보 유료서비스 가입</span>
+										<span class="telecom_item">AT스탁플러스 유료서비스 가입</span>
+										<span class="telecom_item">PASS스탁 유료서비스 가입</span>
+									</button>
+								</div>
+								
+							</div><!-- // btn_g_default -->
+						</div><!-- // signUp_form -->
+
+						<div class="charge_txt">
+							<dl>
+								<dt><strong>매월 부가세포함11,000원</strong></dt>
+								<dd class="telecom_con">
+									<!-- <p>본 서비스는 SKT, KT, LGU+ 통신요금에 부가세포함 매월 11,000원 부과됩니다.</p> -->
+									<p class="telecom_item" id="addTxt_skt"><em>주식정보</em>는 매월 이동통신요금에 포함되어 자동으로 부과됩니다.</p>
+									<p class="telecom_item" id="addTxt_kt"><em>AT스탁플러스</em>는 매월 이동통신요금에 포함되어 자동으로 부과됩니다.</p>
+									<p class="telecom_item" id="addTxt_lgt"><em>PASS스탁</em>은 매월 이동통신요금에 포함되어 자동으로 부과됩니다.</p>
+								</dd>
+							</dl>
+							<div><button type="button" class="esc"><span>다음에 이용하기</span></button></div>
+						</div>
+
+					</div><!-- // signUp_wrap -->
+
+				</div><!-- // signUp_section -->
+
+			</div><!-- // signUp_content_wrap -->
+
+
+			<!-- 가입 완료 -->
+			
+			<!-- // 가입 완료 끝 -->
+
+		</div><!-- // content-wrap-->
+	</section>
+
+	<footer class="telecom_con"><!-- 텍스트 수정이 필요함 -->
+		<ul class="telecom_item" id="footer_skt">
+			<li><b>- 본 서비스는 SKT 고객만 이용 가능합니다.</b></li>
+			<li>- 투자정보는 PASS 앱에서도 확인 가능합니다.</li>
+			<li>주식정보는 PASS 부가서비스로 주식정보 가입 시 PASS서비스에 같이 가입됩니다.</li>
+			<li>- 가입/해지 : PASS 앱 또는 1800-4283</li>
+			<li>- 주식정보문의 : (주)에이티애널리틱스(02-318-0802), cs@analyticsfn.com</li>
+			<li>- 본 서비스의 정보는 (주)에이티애널리틱스가 제공하며 투자를 위한 참고자료입니다. 투자판단의 책임은 투자자 본인에게 있으며 SK텔레콤(주)와 (주)에이티애널리틱스는 법적 책임을 지지 않습니다.</li>
+		</ul>
+		<ul class="telecom_item" id="footer_kt">
+			<li><b>- 본 서비스는 KT 고객만 이용 가능합니다.</b></li>
+			<li>- 투자정보는 PASS 앱에서도 확인 가능합니다.</li>
+			<li>- AT스탁플러스는 PASS 부가서비스로 AT스탁플러스 가입 시 PASS서비스에 같이 가입됩니다.</li>
+			<li>- 가입/해지 : PASS 앱 또는 1800-4283</li>
+			<li>- 주식정보문의 : (주)에이티애널리틱스(02-318-0802), cs@analyticsfn.com</li>
+			<li>- 본 서비스의 정보는 (주)에이티애널리틱스가 제공하며 투자를 위한 참고자료입니다. 투자판단의 책임은 투자자 본인에게 있으며 SK텔레콤(주)와 (주)에이티애널리틱스는 법적 책임을 지지 않습니다.</li>
+		</ul>
+		<ul class="telecom_item" id="footer_lgt">
+			<li><b>- 본 서비스는 LGU+ 고객만 이용 가능합니다.</b></li>
+			<li>- 투자정보는 PASS 앱에서도 확인 가능합니다.</li>
+			<li>- 주식정보는 PASS 부가서비스로 주식정보 가입 시 PASS서비스에 같이 가입됩니다.</li>
+			<li>- 가입/해지 : PASS 앱 또는 1800-4283</li>
+			<li>- 주식정보문의 : (주)에이티애널리틱스(02-318-0802), cs@analyticsfn.com</li>
+			<li>- 본 서비스의 정보는 (주)에이티애널리틱스가 제공하며 투자를 위한 참고자료입니다. 투자판단의 책임은 투자자 본인에게 있으며 SK텔레콤(주)와 (주)에이티애널리틱스는 법적 책임을 지지 않습니다.</li>
+		</ul>
+	</footer><!-- // footer -->
+
+	<div><img src="../images/temp/bnr_sample_mobile.png" alt="모바일배너영역"></div>
+
+	<div class="p_footer_b">
+		<input type="checkbox" id="ignoreChk" name="ignoreChk"> <label for="ignoreChk">7일간 보이지 않기</label>
+	</div>
+</div><!-- // wrap gType -->
+
+
+
+
+
+<div class="dimT01" onclick="javascript:pop_close('T01')"></div>
+<div class="layer-popT01 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="T01t"></pre>
+		<button onclick="javascript:pop_close('T01')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="T01"></pre></div>
+</div>
+
+<div class="dimT02" onclick="javascript:pop_close('T02')"></div>
+<div class="layer-popT02 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="T02t"></pre>
+		<button onclick="javascript:pop_close('T02')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="T02"></pre></div>
+</div>
+
+<div class="dimT03" onclick="javascript:pop_close('T03')"></div>
+<div class="layer-popT03 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="T03t"></pre>
+		<button onclick="javascript:pop_close('T03')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="T03"></pre></div>
+</div>
+
+<div class="dimT04" onclick="javascript:pop_close('T04')"></div>
+<div class="layer-popT04 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="T04t"></pre>
+		<button onclick="javascript:pop_close('T04')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="T04"></pre></div>
+</div>
+
+<div class="dimT05" onclick="javascript:pop_close('T05')"></div>
+<div class="layer-popT05 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="T05t"></pre>
+		<button onclick="javascript:pop_close('T05')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="T05"></pre></div>
+</div>
+
+<div class="dimS01" onclick="javascript:pop_close('S01')"></div>
+<div class="layer-popS01 gTypeLayer">
+	<h2 class="pop-tit">
+		<pre id="S01t"></pre>
+		<button onclick="javascript:pop_close('S01')" class="esc">
+			<img src="/resources/img/esc.png" />
+		</button>
+	</h2>
+	<div class="scroll"><pre id="S01"></pre></div>
+</div>
+
+<form id="joinComplete" method="post" action="../event/joinComplete">
+	<input type="hidden" id="telCd" name="telCd" value="">
+	<input type="hidden" id="formTp" name="formTp" value="">
+</form>
+
+
+<script>
+$(document).ready(function(){
+
+	$("#authBtn").on("click", function(){
+		$(".certify").show();
+		$("#authNo").attr("disabled", false);
+		$("#authNo").focus();
+		$("#authBtn").removeClass("btn_certify");
+		$("#authBtn").addClass("btn_gray1");
+		$("#authBtn span").html("재요청");
+		$("#joinbutton").attr("disabled", false);
+	})
+
+
+	// 의도 : 통신사 선택시 통신사별 내용으로 교체 (개발에 적용 불가)
+	var telecom_tab_idx = 0;
+	var telecom_tab = $(".wrap.gType .radio li");
+	telecom_tab.each(function(){
+		var telecom_tab_idx = telecom_tab.index($(this));
+		$(this).on("click", function(){
+			telecom_con(telecom_tab_idx);
+		})
+	})
+	function telecom_con(xxx){
+		$(".telecom_con").each(function(){
+			$(this).find(".telecom_item").hide();
+			$(this).find(".telecom_item").eq(xxx).show();
+			$(this).find(".telecom_item").eq(xxx).siblings().hide();
+		})
+	}
+	telecom_con(telecom_tab_idx);
+
+
+	/* footer 텍스트 수정 */
+	// 의도 : 관리자가 입력하는 footer 내용중 글의 시작부분에 "-"가 있는지 확인 후 간격 재설정. (동작은 하는데 왜 동작하는지 모름 검수 필요)
+	$(".gType footer ul li").each(function(){
+		footerTxtStr($(this));
+		$bbb = $(this).find("*:not(.bul)");
+		$bbb.each(function(){
+			footerTxtStr($(this))
+		})
+		$(this).prepend("<span class='bul'>-</span>")
+	})
+	function footerTxtStr(target){
+		var $target = target;
+		var footer_txt = $target.html();
+		if(footer_txt.charAt(0) === '-') {
+			footer_txt = footer_txt.substr(1);
+			$target.html(footer_txt);
+		}
+	}
+
+	$("input").on("focusOut, blur", function(){
+		$("html").scrollTop(0);
+	})
+
+	function heightCompare(){
+		var body_h_d = $("body").outerHeight();
+		var body_h_n;
+		$(window).resize(function() {
+			body_h_n = $("body").outerHeight();
+			if(body_h_d > body_h_n){
+				/*alert("키보드 나왔다. 또는 틀이 나왔다.");*/
+			} else if(body_h_d <= body_h_n){
+				/*alert("키보드 들어갔다. 또는 틀이 들어갔다.");*/
+				$("html").scrollTop(0);
+			}
+		});
+	}
+	// heightCompare();
+	
+})
+</script>
+
+</body>
+</html>
