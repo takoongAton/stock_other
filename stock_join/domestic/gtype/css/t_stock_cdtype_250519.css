@@ -784,6 +784,22 @@ body {margin:0;}
 }
 /* // 국내주식 서비스 목록(가입완료) */
 
+
+/* 실시간 급등주 확인하기 */
+.realtime_stock {margin-top:48px;}
+.realtime_stock button.btn_realtime {width:100%; height:56px;  background-color:#FF4343; border:0 none; border-radius:5px;}
+.realtime_stock button.btn_realtime strong {margin-top:48px; color:#fff; font-size:18px; line-height:28px;}
+.realtime_stock p.txt {margin-top:16px; color:#aaa; font-size:15px; line-height:22px;}
+@media screen and (max-width: 719px) {
+	.realtime_stock {padding:0 13px;}
+}
+/* // 실시간 급등주 확인하기 */
+/* gType 끝 */
+
+
+
+/* 가입창 수정 (250519) */
+
 /* 국내주식 서비스 목록(가입창) */
 .stock_service_signUp {margin-top:15px;}
 .stock_service_signUp ul {display:flex; justify-content: space-around;}
@@ -797,13 +813,29 @@ body {margin:0;}
 }
 /* // 국내주식 서비스 목록(가입창) */
 
-/* 실시간 급등주 확인하기 */
-.realtime_stock {margin-top:48px;}
-.realtime_stock button.btn_realtime {width:100%; height:56px;  background-color:#FF4343; border:0 none; border-radius:5px;}
-.realtime_stock button.btn_realtime strong {margin-top:48px; color:#fff; font-size:18px; line-height:28px;}
-.realtime_stock p.txt {margin-top:16px; color:#aaa; font-size:15px; line-height:22px;}
-@media screen and (max-width: 719px) {
-	.realtime_stock {padding:0 13px;}
+.layer_dim {position:fixed; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.5); z-index:2;}
+
+.layer_alert {position:fixed; top:50%; left:50%; width:284px; background-color:#fff; border-radius:6px; overflow:hidden; transform:translate(-50%,-50%); box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:3;}
+
+.layer_alert .btn_close {position:absolute; top:18px; right:18px; width:24px; height:24px;}
+.layer_alert .layer_content {display:flex; flex-direction:column; gap:20px; padding:50px 18px 36px; text-align:center;}
+.layer_alert .layer_content div.tit {color:#000; font-size:18px; line-height:27px; font-weight:bold;}
+.layer_alert .layer_content p.txt {color:#000; font-size:14px; line-height:22px; font-weight:400;}
+
+.layer_alert .ipt_certify {position:relative; border-bottom:1px solid #000;}
+.layer_alert .ipt_certify input {height:56px; padding:15px 45px 18px 15px; border:0; color:#333; font-size:18px; line-height:22px; outline:none;}
+.layer_alert .ipt_certify input::placeholder {color:#AAAAAA; font-size:inherit; line-height:inherit; font-weight:inherit;}
+.layer_alert .ipt_certify span.timer {position:absolute; right:10px; top:50%; transform:translateY(-50%); color:#ff0000; font-size:11px; line-height:17px; font-weight:400;}
+
+.layer_alert .btn_group {display:flex;}
+.layer_alert .btn_group button {width:100%; min-height:72px; padding:16px; border-top:0.5px solid #ddd;}
+.layer_alert .btn_group button span {font-size:18px; line-height:27px; font-weight:bold;}
+.layer_alert .btn_group button.btn_cancel {}
+.layer_alert .btn_group button.btn_cancel span {color:#000;}
+.layer_alert .btn_group button.btn_next {background-color:#FF4343;}
+.layer_alert .btn_group button.btn_next span {color:#fff;}
+@media screen and (min-width:540px) {
+	.layer_alert {width:400px;}
+	.layer_alert .layer_content p.txt {font-size:15px;}
 }
-/* // 실시간 급등주 확인하기 */
-/* gType 끝 */
+/* // 가입창 수정 (250519) */
