@@ -560,11 +560,14 @@ body {margin:0;}
 .wrap.gType .terms-agree .all-agree > div label * {vertical-align:top;}
 
 .wrap.gType .terms-agree .agree {}
-.wrap.gType .terms-agree .agree ul {display:flex; flex-wrap:wrap; gap:15px 10px;}
+.wrap.gType .terms-agree .agree ul {display:flex; flex-wrap:wrap; flex-direction:column; gap:15px 10px;}
 /* .wrap.gType .terms-agree .agree ul::after {content:""; display:block; height:0; clear:both;} */
 .wrap.gType .terms-agree .agree li {display:block; position:relative; min-width:calc(50% - 5px);}
 .wrap.gType .terms-agree .agree li div {position:relative;}
 .wrap.gType .terms-agree .agree li div * {vertical-align:top;}
+@media screen and (min-width:540px) {
+    .wrap.gType .terms-agree .agree ul {flex-direction:row;}
+}
 
 /* .wrap.gType .terms-agree .agree li:nth-child(2n+1)::after {content:""; display:block; height:0; clear:both;} */
 /* .wrap.gType .terms-agree .agree li:nth-child(2) ~ li {} */
