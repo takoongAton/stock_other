@@ -543,6 +543,21 @@ input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none; -moz-a
 /* gType 끝 */
 
 
+
+/* 가입 안내 팝업 */
+.layer.signUp .layer_inner {
+	min-width:280px; max-width:400px; width:80%;
+	position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background-color:#fff; border-radius:0.375em; color:inherit; z-index:1000; overflow-y:auto; box-shadow:0 1px 2px rgba(0,0,0,0.2);
+}
+.layer.signUp .layer_inner .layer_content {display:flex; flex-direction:column; gap:10px; padding:36px 18px; text-align:center;}
+.layer.signUp .layer_inner .layer_content strong {color:#FF3A4A; font-size:18px; line-height:28px; font-weight:700;}
+.layer.signUp .layer_inner .layer_content div.tit {color:#000; font-size:18px; line-height:28px; font-weight:700;}
+.layer.signUp .layer_inner .layer_content div.txt {color:#000; font-size:16px; line-height:24px; font-weight:400;}
+.layer.signUp .btn_group div button.next {width:100%; height:72px; background-color:#FF4343; color:#fff;}
+.layer.signUp .btn_group div button.next span {color:#fff; font-size:18px; line-height:27px; font-weight:bold;}
+/* // 가입 안내 팝업 */
+
+
 /* 전체팝업 */
 .layer.full {
 	display: -webkit-box;
