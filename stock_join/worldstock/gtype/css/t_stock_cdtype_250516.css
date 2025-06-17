@@ -557,6 +557,42 @@ input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none; -moz-a
 .layer.signUp .btn_group div button.next span {color:#fff; font-size:18px; line-height:27px; font-weight:bold;}
 /* // 가입 안내 팝업 */
 
+/* 가입창 서비스 정보 */
+.service_info {display:flex; justify-content:space-between; margin-top:0.9375em;}
+.service_info > div {display:inline-flex; flex-direction:column; align-items:center; gap:0.25em; width:100%; text-align:center;}
+.service_info > div span.ico {display:inline-block; width:2.25em; height:2.25em;;}
+.service_info > div p.txt {color:#000; font-size:0.8125em; line-height:1.46153em; font-weight:400;}
+@media screen and (min-width:721px) {
+	.service_info > div p.txt {font-size:15px;}
+}
+/* // 가입창 서비스 정보 */
+
+/* 인증번호 입력 팝업 */
+.layer_alert {position:fixed; top:50%; left:50%; width:284px; background-color:#fff; border-radius:6px; overflow:hidden; transform:translate(-50%,-50%); box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:1000;}
+
+.layer_alert .btn_close {position:absolute; top:18px; right:18px; width:24px; height:24px;}
+.layer_alert .layer_content {display:flex; flex-direction:column; gap:20px; padding:50px 18px 36px; text-align:center;}
+.layer_alert .layer_content div.tit {color:#000; font-size:18px; line-height:27px; font-weight:bold;}
+.layer_alert .layer_content p.txt {color:#000; font-size:14px; line-height:22px; font-weight:400;}
+
+.layer_alert .ipt_certify {position:relative; border-bottom:1px solid #000;}
+.layer_alert .ipt_certify input {height:56px; padding:15px 45px 18px 15px; border:0; color:#333; font-size:18px; line-height:22px; outline:none;}
+.layer_alert .ipt_certify input::placeholder {color:#AAAAAA; font-size:inherit; line-height:inherit; font-weight:inherit;}
+.layer_alert .ipt_certify span.timer {position:absolute; right:10px; top:50%; transform:translateY(-50%); color:#ff0000; font-size:11px; line-height:17px; font-weight:400;}
+
+.layer_alert .btn_group {display:flex;}
+.layer_alert .btn_group button {width:100%; min-height:72px; padding:16px; border-top:0.5px solid #ddd;}
+.layer_alert .btn_group button span {font-size:18px; line-height:27px; font-weight:bold;}
+.layer_alert .btn_group button.btn_cancel {}
+.layer_alert .btn_group button.btn_cancel span {color:#000;}
+.layer_alert .btn_group button.btn_next {background-color:#FF4343;}
+.layer_alert .btn_group button.btn_next span {color:#fff;}
+@media screen and (min-width:540px) {
+	.layer_alert {width:400px;}
+	.layer_alert .layer_content p.txt {font-size:15px;}
+}
+/* // 인증번호 입력 팝업 */
+
 
 /* 전체팝업 */
 .layer.full {
