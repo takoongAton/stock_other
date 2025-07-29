@@ -437,20 +437,20 @@ layer_alerts.forEach(function(alertItem){
 
 
 
-// let layer_alerts = document.querySelectorAll(".layer_alert");
-// layer_alerts.forEach(function(alertItem){
-//     let btns = alertItem.querySelectorAll("button");
-//     btns.forEach(function(btn){
-//         btn.addEventListener("click", function(){
-//             alertItem.style.display = "none";
+let layers = document.querySelectorAll(".layer");
+layers.forEach(function(alertItem){
+    let btns = alertItem.querySelectorAll("button");
+    btns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+            alertItem.style.display = "none";
 
-//             let dimAlert = document.querySelector("div.dim_alert");
-//             if (dimAlert) {
-//                 dimAlert.style.display = "none";
-//             }
-//         });
-//     });
-// });
+            let dimAlert = document.querySelector("div.dim_alert");
+            if (dimAlert) {
+                dimAlert.style.display = "none";
+            }
+        });
+    });
+});
 </script>
 </body>
 </html>
